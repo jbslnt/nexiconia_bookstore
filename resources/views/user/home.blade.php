@@ -102,9 +102,8 @@
             </div>
         </section>
 
-        <section class="editorial-banner" id="new-arrivals">
+        <section class="editorial-banner editorial-banner-text-only" id="new-arrivals">
             <div><p class="eyebrow">The latest chapter</p><h2>New arrivals<br>for new perspectives.</h2><a class="button button-light" href="{{ url('p1') }}">Discover what's new <span>→</span></a></div>
-            <img src="{{ asset('Images/author.png') }}" alt="Author holding a book">
         </section>
     </main>
 

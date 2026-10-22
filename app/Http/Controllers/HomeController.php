@@ -192,12 +192,17 @@ class HomeController extends Controller
 
         public function about()
         {
+            $user = auth()->user();
+            $cart = $user
+                ? Cart::where('user_id', $user->id)
+                    ->orWhere(function ($query) use ($user) {
+                        $query->whereNull('user_id')
+                            ->where('phone', $user->phone);
+                    })
+                    ->get()
+                : collect();
 
-            $user=auth()->user();
-
-           $cart=cart::where('phone',$user->phone)->get();
-            
-            $count=cart::where('phone',$user->phone)->count();
+            $count = $cart->count();
            
 
             return view('user.about', compact('count', 'cart'));

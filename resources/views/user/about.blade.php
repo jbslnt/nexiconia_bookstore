@@ -2,577 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexiconia Bookstore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
-
-
+    <meta name="description" content="Learn about Nexiconia Bookstore and our mission to help readers find meaningful stories.">
+    <title>About Nexiconia | Nexiconia Bookstore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/modern-storefront.css') }}">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
-        
-        
-        section .navigation{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            box-shadow: 0 0 10px #f7a623;
-            background: #fff;
-            position: fixed;
-            left: 0;
-            z-index: 100;
-        }
-        
-        section nav .logo img{
-            width: 100px;
-            cursor: pointer;
-            margin: 8px 0;
-        }
-        
-        section nav ul {
-            list-style: none;
-            padding-top: 20px;
-        }
-
-        section nav li {
-            display: inline-block;
-            position: relative; /* Add this for the dropdown positioning */
-            padding: 0 20px 0 20px;
-            font-size: large;
-        }
-
-        section nav li a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        section nav li a:hover {
-            color: #f7a623;
-        }
-
-        .dropdown-content {
-            display: none; /* Hide the dropdown by default */
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            padding: 0; /* Reset padding */
-        }
-
-        .dropdown-content li {
-            display: block; /* Make sure dropdown items are block elements */
-        }
-
-        .dropdown-content li a {
-            color: black; /* Set dropdown link color */
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: medium; /* Adjust font size if needed */
-        }
-
-        .dropdown-content li a:hover {
-            background-color: #f1f1f1; /* Add a background color on hover */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block; /* Show the dropdown on hover */
-        }
-
-        
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-        section nav .box{
-          max-width: 400px;
-          width: 100%;
-        }
-        section nav .box .search-box{
-          position: relative;
-          height: 50px;
-          margin: auto;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-          border-radius: 25px;
-        }
-        
-        section nav .search-box input{
-         position: absolute;
-         height: 100%;
-         width: 100%;
-         border-radius: 25px;
-         background: #fff;
-         outline: none;
-         border: none;
-         padding-left: 20px;
-         font-size: 18px;
-        }
-        section nav .search-box .icon{
-          position: absolute;
-          right: -2px;
-          top: 0;
-          width: 50px;
-          background: #f7a623;
-          height: 100%;
-          text-align: center;
-          line-height: 50px;
-          color: #fff;
-          font-size: 20px;
-          border-radius: 0 25px 25px 0;
-        }
-        section nav #check:checked ~ .search-box .icon{
-            background: #f7a623;
-            color: #FFF;
-            width: 60px;
-            border-radius: 0 25px 25px 0;
-          }
-        section nav #check{
-            display: none;
-          }
-        
-        
-        section nav .social_icon i{
-            margin: 0 20px;
-            font-size: 30px;
-            color: #f7a623;
-        }
-        
-        section nav .social_icon i:hover{
-            color: black;
-            cursor: pointer;
-        }
-        
-        
-        
-        
-        /*product*/
-        
-        .product {
-            width: 70%; 
-            height: auto;
-            margin: 0 auto;
-            margin-bottom: 100px;
-            position: relative; 
-        }
-        
-        .product::before {
-            content: ''; 
-            display: block;
-            height: 120px; 
-            width: 100%; 
-        }
-        
-        .product .product_box{
-            width: 100%;
-            margin: 0 auto;
-        }
-        
-        .product .product_box .product_card2{
-            width: 900px;
-            height: 300px;
-            text-align: center;
-            padding: 5px;
-            margin: auto ;
-        }
-        .product .product_box .product_card2 .product_details {
-            margin: 10px 10px 0 10px;
-            
-        }
-        
-        .product .product_box .product_card2 .product_details h1 {
-            font-size: 30px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-align: justify;
-        }
-        
-        .product .product_box .product_card2 .product_details p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: #555; 
-            text-align: justify;
-        }
-
-
-
-        /*Banner*/
-        .banner_one{
-            width: 80%;
-            height: 70vh; /* Adjusted height */
-            background-image: url('{{ asset('Images/6.png') }}');
-            background-position: center;
-            margin-bottom: 50px;
-            margin-left: 10%;
-            align-items: center;
-        }
-
-        .banner_two{
-            width: 70%;
-            height: 70vh; /* Adjusted height */
-            background-image: url('{{ asset('Images/7.png') }}');
-            background-position: center;
-            margin-bottom: 50px;
-            margin-left: 15%;
-            align-items: center;
-        }
-    
-        
-
-
-    
-        
-        /*Footer*/
-        
-        footer{
-            width: 100%;
-            background: #eaeaea;
-        }
-        
-        footer .footer_main{
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-        }
-        
-        footer .footer_main .tag{
-            margin: 10px 0;
-        }
-        
-        footer .footer_main .tag img{
-            width: 200px;
-            height: 10vh;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        footer .footer_main .tag p{
-            width: 250px;
-            line-height: 22px;
-            text-align: justify;
-        }
-        
-        footer .footer_main .tag h1{
-            font-size: 25px;
-            font-weight: bold;
-            margin: 25px 0;
-            color: #000;
-        }
-        
-        footer .footer_main .tag a{
-            display: block;
-            color: black;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 20px;
-        }
-        
-        footer .footer_main .tag i{
-            margin-right: 10px;
-        }
-        
-        footer .footer_main .tag .social_link i{
-            margin: 0 5px;
-        }
-        
-        footer .end{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            color: #000;
-        }
-        
-        footer .end span{
-            color: #f7a623;
-            margin-left: 10px;
-        }
-
-        ::-webkit-scrollbar{
-            width: 10px;
-            height: 5px;
-        }
-        
-        ::-webkit-scrollbar-track{
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
-        }
-        
-        ::-webkit-scrollbar-thumb{
-            background: #f7a623;
-            border-radius: 10px;
-        }
-
-        :root {
-            --nexiconia-ink: #172a3a;
-            --nexiconia-cream: #f8f4ec;
-            --nexiconia-paper: #fffdf8;
-            --nexiconia-amber: #d9853b;
-            --nexiconia-muted: #66717a;
-        }
-
-        body {
-            background: var(--nexiconia-cream);
-            color: var(--nexiconia-ink);
-        }
-
-        .navigation {
-            min-height: 78px;
-            padding: 0 4vw;
-            border-bottom: 1px solid rgba(23, 42, 58, .08);
-            box-shadow: 0 8px 24px rgba(23, 42, 58, .08) !important;
-        }
-
-        .navigation .logo img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-        }
-
-        .banner_one,
-        .banner_two {
-            border-radius: 16px;
-            box-shadow: 0 18px 45px rgba(23, 42, 58, .14);
-        }
-
-        .banner_one {
-            margin-top: 110px;
-        }
-
-        .product {
-            width: min(1100px, 90%);
-            padding: 40px 0;
-        }
-
-        .product_card2 {
-            width: 100% !important;
-            height: auto !important;
-            padding: 20px 0;
-        }
-
-        .product_details {
-            padding: 30px clamp(20px, 5vw, 70px);
-            border: 1px solid #e4dbce;
-            border-radius: 16px;
-            background: var(--nexiconia-paper);
-            box-shadow: 0 16px 40px rgba(23, 42, 58, .08);
-        }
-
-        .product_details h1 {
-            color: var(--nexiconia-ink);
-            font: 700 clamp(30px, 4vw, 52px)/1.05 Georgia, serif;
-        }
-
-        .product_details p {
-            color: var(--nexiconia-muted);
-            font-size: 18px !important;
-            line-height: 1.8;
-        }
-
-        footer {
-            background: var(--nexiconia-ink);
-        }
-
-        footer .footer_main .tag h1,
-        footer .footer_main .tag a,
-        footer .footer_main .tag p,
-        footer .end {
-            color: #f7f1e7;
-        }
+        .about-page { max-width: 1280px; margin: auto; padding: 76px clamp(20px, 6vw, 90px) 90px; }
+        .about-hero { display: grid; grid-template-columns: 1fr .9fr; gap: 70px; align-items: center; padding-bottom: 85px; }
+        .about-hero h1 { max-width: 650px; margin: 0; font: 700 clamp(46px, 6vw, 78px)/.98 "Playfair Display", serif; letter-spacing: -.06em; }
+        .about-hero h1 em { color: var(--accent); font-style: normal; }
+        .about-lead { max-width: 520px; margin: 24px 0 30px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+        .about-art { position: relative; }
+        .about-art img { display: block; width: 100%; aspect-ratio: 619 / 515; object-fit: contain; border-radius: 24px; box-shadow: 20px 24px 0 #e9ded3; }
+        .about-brand-art { position: relative; display: grid; width: 100%; aspect-ratio: 619 / 515; place-items: center; overflow: hidden; border-radius: 24px; background-color: #f1df9e; background-image: linear-gradient(45deg, rgba(255,255,255,.35) 25%, transparent 25%), linear-gradient(-45deg, rgba(255,255,255,.3) 25%, transparent 25%), radial-gradient(circle at 20% 25%, #fff 0 2px, transparent 3px), radial-gradient(circle at 75% 70%, #8d8c82 0 3px, transparent 4px); background-position: 0 0, 20px 20px, 0 0, 0 0; background-size: 40px 40px, 40px 40px, 90px 80px, 120px 110px; box-shadow: 20px 24px 0 #e9ded3; }
+        .about-brand-art::before { position: absolute; inset: 0; background: repeating-linear-gradient(120deg, transparent 0 46px, rgba(91,91,83,.2) 47px 49px, transparent 50px 92px); content: ""; opacity: .65; }
+        .about-brand-name { position: relative; z-index: 1; color: #050505; font: 700 clamp(36px, 6vw, 78px)/.85 Georgia, serif; letter-spacing: -.08em; text-align: center; text-shadow: 2px 2px 0 rgba(255,255,255,.25); }
+        .about-brand-name small { display: block; margin-top: 20px; font: 700 clamp(14px, 2vw, 24px)/1 "DM Sans", sans-serif; letter-spacing: .02em; }
+        .about-art::before { position: absolute; inset: 8% -8% 8% 8%; border: 1px solid #dfc4af; border-radius: 50%; content: ""; transform: rotate(-18deg); }
+        .about-stamp { position: absolute; right: -18px; bottom: 12px; display: grid; width: 92px; height: 92px; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .12em; line-height: 1.4; text-align: center; transform: rotate(10deg); }
+        .about-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 90px; border: 1px solid var(--line); background: var(--line); }
+        .about-number { padding: 28px; background: var(--paper); }
+        .about-number strong { display: block; color: var(--accent); font: 700 34px "Playfair Display", serif; }
+        .about-number span { color: var(--muted); font-size: 12px; }
+        .about-section { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; padding: 75px 0; border-top: 1px solid var(--line); }
+        .about-section h2, .about-story h2 { margin: 0; font: 700 clamp(34px, 4vw, 54px)/1.05 "Playfair Display", serif; letter-spacing: -.04em; }
+        .about-copy { color: var(--muted); font-size: 16px; line-height: 1.85; }
+        .about-copy p { margin: 0 0 20px; }
+        .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+        .value-card { min-height: 145px; padding: 20px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); }
+        .value-card > span { color: var(--accent); font-size: 24px; }
+        .value-card h3 { margin: 22px 0 7px; font: 700 16px "Playfair Display", serif; }
+        .value-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+        .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 80px 0 20px; }
+        .about-story img { width: 100%; height: 310px; object-fit: cover; border-radius: 10px; }
+        .about-story p { margin: 22px 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+        .featured-author { position: relative; display: block; width: min(100%, 760px); margin: 20px auto 80px; border-radius: 180px 180px 12px 12px; }
+        .featured-author::before { position: absolute; z-index: -1; inset: 20px -1px -20px 20px; border-radius: 180px 180px 12px 12px; background: #e9ded3; content: ""; }
+        .featured-author-image { display: block; width: 100%; aspect-ratio: 619 / 515; border-radius: 180px 180px 12px 12px; object-fit: cover; }
+        .featured-author-badge { position: absolute; right: -1px; bottom: -19px; display: grid; width: 94px; height: 94px; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .1em; line-height: 1.4; text-align: center; transform: rotate(10deg); }
+        .about-hero .featured-author { width: 100%; margin: 0; }
+        @media (max-width: 800px) { .about-hero, .about-section, .about-story { grid-template-columns: 1fr; gap: 38px; } }
+        @media (max-width: 560px) { .featured-author, .featured-author-image { border-radius: 120px 120px 12px 12px; } .featured-author::before { border-radius: 120px 120px 12px 12px; } }
+        @media (max-width: 560px) { .about-page { padding-top: 45px; } .about-numbers, .value-grid { grid-template-columns: 1fr; } }
     </style>
-
-
 </head>
 <body>
-    
-    <!--Navigation Bar-->
-    <div class="container">
-        <section>
-            <nav class="navigation">
-                <div class="logo">
-                    <img src="{{ asset('Images\logo.png') }}" alt="logo">
-                </div>
-    
-                <ul>
-                    <li><a href="{{url('redirect')}}">Home</a></li>
-                    <li class="dropdown">
-                        <a>Books</a>
-                        <ul class="dropdown-content">
-                            <li><a href="">Fiction</a></li>
-                            <li><a href="">History</a></li>
-                            <li><a href="">Poetry</a></li>
-                            <li><a href="">Poltical Science</a>
-                            <li><a href="">History</a>
-                            <li><a href="">Religion</a>
-                            <li><a href="">Social Science</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="#">About</a></li>
-                    
-                </ul>
-    
-                <form action="{{url('search')}}" method="get" class="form-inline" style="float: right; padding: 10px;">
-                @csrf
-            
-                <input class="form-control" type="search" name="search" placeholder="Type here..." style="display: inline-block; width: auto;">
-            
-                <input type="submit" value="Search" class="btn btn-success" style="display: inline-block; width: auto; background-color: #f7a623; border-color: #f7a623;" > 
-            
+    <header class="site-header">
+        <a class="brand" href="{{ url('/') }}" aria-label="Nexiconia Bookstore home">
+            <span class="brand-mark">N</span>
+            <span><strong>Nexiconia</strong><small>BOOKSTORE</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="{{ url('/') }}">Home</a>
+            <a href="{{ url('/') }}#catalog">Browse books</a>
+            <a class="active" href="{{ url('about') }}">About</a>
+        </nav>
+        <div class="header-actions">
+            <form class="search-form" action="{{ url('search') }}" method="get">
+                <label class="sr-only" for="about-search">Search books</label>
+                <input id="about-search" type="search" name="search" placeholder="Search books...">
+                <button type="submit" aria-label="Search">⌕</button>
             </form>
-                
-               
-                
-    
-               
-                        
-                    
-                    <div class="user-icon-container">
-    
-    
-                            @if (Route::has('login'))
-                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                    @auth
-    
-                                    <div class="social_icon">
-                                        <a href="{{url('showcart')}}" style="font-weight: bold; color: black;">
-                                            <i class="fa-solid fa-shopping-cart" style="margin-right: 0;"></i>Cart[{{$count}}]
-                                        </a>
-                                        
-    
-                                    <a href="{{ route('profile.show') }}">
-                                        <i class="fas fa-user user-icon"></i>
-                                    </a>
-                                    
-                                    
-                                    @else
-                                        <li><a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a></li>
-                                        @if (Route::has('register'))
-                                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a></li>
-                                        @endif
-                                    @endauth
-                                </div>
-                            @endif
-                    </div>
-                    
-    
-    
-            </nav>
+            <a class="cart-link" href="{{ url('showcart') }}" aria-label="View cart"><span>Bag</span><b>{{ $count }}</b></a>
+            @auth
+                <a class="account-link" href="{{ route('profile.show') }}" aria-label="Your profile">◎</a>
+            @else
+                <a class="text-link" href="{{ route('login') }}">Sign in</a>
+            @endauth
+        </div>
+    </header>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <div>
+                <p class="eyebrow">A little about us</p>
+                <h1>Books make the world feel <em>larger.</em></h1>
+                <p class="about-lead">Nexiconia is a thoughtful online bookstore for curious readers across the Philippines. We help you find stories that open doors, start conversations, and stay with you.</p>
+                <a class="button" href="{{ url('/') }}#catalog">Explore our books <span>→</span></a>
+            </div>
+            <div class="about-art">
+                <section class="featured-author" aria-label="Featured author Alan Moore">
+                    <img class="featured-author-image" src="{{ asset('Images/author.png') }}" alt="Featured author Alan Moore">
+                    <span class="featured-author-badge">READ<br>WITH<br>INTENTION</span>
+                </section>
+            </div>
         </section>
-     
-   
-    </div>
 
-     <!--Banner-->
+        <section class="about-numbers" aria-label="Nexiconia highlights">
+            <div class="about-number"><strong>2024</strong><span>Our digital bookstore journey began</span></div>
+            <div class="about-number"><strong>1,200+</strong><span>Stories and perspectives to discover</span></div>
+            <div class="about-number"><strong>∞</strong><span>Reasons to keep turning the page</span></div>
+        </section>
 
-     <div class="banner_one">
-                    
-     </div>
-
-        <!--About-->
-    <div class="product">
-        <div class="product_box">
-
-            <div class="product_card2">
-                <div class="product_details">
-                    <h1>About Us</h1>
-                    <p>
-                        Embarking on its digital journey in 2024, Nexiconia Bookstore emerged with a singular vision - to ignite the love for reading and learning across the Philippines. With its virtual shelves brimming with literary treasures, Nexiconia began its humble yet impactful voyage, driven by a passion for literature and a commitment to enriching minds.
-                    </p>
+        <section class="about-section">
+            <div><p class="eyebrow">What we believe</p><h2>A bookstore for the curious.</h2></div>
+            <div class="about-copy">
+                <p>Our mission is simple: make meaningful books easier to find and more enjoyable to bring into your life. From new releases to overlooked gems, every title is an invitation to pause, imagine, and learn.</p>
+                <p>We are building more than a shop. We are building a welcoming community for readers, thinkers, and lifelong learners—one good recommendation at a time.</p>
+                <div class="value-grid">
+                    <article class="value-card"><span>✦</span><h3>Curiosity first</h3><p>Room for different ideas, voices, and ways of seeing.</p></article>
+                    <article class="value-card"><span>♡</span><h3>Reader-led</h3><p>Your reading life is personal. Our shelves should feel that way too.</p></article>
+                    <article class="value-card"><span>⌁</span><h3>Always learning</h3><p>Every book is a chance to grow a little wider and deeper.</p></article>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </div>
+        <section class="about-story">
+            <img src="{{ asset('Images/banner2.png') }}" alt="Books waiting to be discovered">
+            <div><p class="eyebrow">Keep reading</p><h2>Make space for a story.</h2><p>Whether you are choosing a gift, finding a weekend read, or starting a new chapter of your own, Nexiconia is here to help you find something worth keeping.</p><a class="quiet-link" href="{{ url('/') }}#catalog">Browse the collection <span>→</span></a></div>
+        </section>
+    </main>
 
-
-    <!--Banner-->
-
-    <div class="banner_two">
-                    
-    </div>
-
-        <!--About-->
-        <div class="product">
-            <div class="product_box">
-    
-                <div class="product_card2">
-                    <div class="product_details">
-                        <h1>Empowering Minds, Enriching Lives</h1>
-                        <p>
-                            At Nexiconia, our mission is to provide access to a diverse range of knowledge and inspiration, fostering a culture of lifelong learning and personal growth. Through our curated selection of books and innovative online platform, we aim to create a vibrant community of readers, thinkers, and learners. We are committed to delivering exceptional service, promoting literacy, and making a positive impact on individuals and communities worldwide.                        </p>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    
-
-
-     <!--Footer-->
-     
-     <footer>
-        <div class="footer_main">
-
-            <div class="tag">
-                <img src="{{ asset('Images\logo2.png') }}">
-                
-                   
-            </div>
-
-            <div class="tag">
-                <h1>Quick Link</h1>
-                <a href="#">Home</a>
-                <a href="#">Books</a>
-                <a href="#">About</a>
-                
-            </div>
-
-            <div class="tag">
-                <h1>Contact Info</h1>
-                <a href="#"><i class="fa-solid fa-phone"></i>+63 9353611374</a>
-                <a href="#"><i class="fa-solid fa-envelope"></i>nexiconiabookstore@gmail.com</a>
-                
-            </div>
-
-            <div class="tag">
-            <h1>Follow Us</h1>
-                    <div class="social_link">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-            </div>
-            
-                
-            
-
-           
-        </div>
-
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
-
+    <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark">N</span><h2>Nexiconia</h2><p>A quieter place for good stories.</p></div>
+        <div><h3>Explore</h3><a href="{{ url('/') }}">Home</a><a href="{{ url('/') }}#catalog">Browse books</a><a href="{{ url('about') }}">About us</a></div>
+        <div><h3>Contact</h3><a href="mailto:nexiconiabookstore@gmail.com">nexiconiabookstore@gmail.com</a><a href="tel:+639353611374">+63 935 361 1374</a></div>
+        <div class="footer-bottom"><span>© {{ date('Y') }} Nexiconia Bookstore</span><span>Made for readers.</span></div>
     </footer>
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-
-    
 </body>
 </html>
-
-
-
-
-                       
