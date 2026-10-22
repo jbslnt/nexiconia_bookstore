@@ -2,15 +2,6 @@
    
    <!--Trending-->
 
-   @if(Session::has('message'))
-   <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: relative; padding-right: 50px;">
-       {{ session()->get('message') }}
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
-           <span aria-hidden="true">&times;</span>
-       </button>
-   </div>
-@endif
-
     <div class="featured_boks">
 
         <h1>What's Trending</h1>

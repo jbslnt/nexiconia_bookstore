@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexiconia Bookstore</title>
+    <meta name="description" content="Nexiconia Bookstore — thoughtful books for curious readers.">
+    <title>Nexiconia Bookstore | Find your next favorite read</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
@@ -518,16 +519,326 @@
 
     
 
+        /* Nexiconia editorial identity */
+        :root {
+            --nexiconia-ink: #172a3a;
+            --nexiconia-cream: #f8f4ec;
+            --nexiconia-paper: #fffdf8;
+            --nexiconia-amber: #d9853b;
+            --nexiconia-muted: #66717a;
+        }
+
+        body {
+            background: var(--nexiconia-cream);
+            color: var(--nexiconia-ink);
+        }
+
+        .navigation {
+            min-height: 78px;
+            padding: 0 4vw;
+            box-shadow: 0 8px 24px rgba(23, 42, 58, .08) !important;
+            border-bottom: 1px solid rgba(23, 42, 58, .08);
+        }
+
+        .navigation .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 190px;
+        }
+
+        .navigation .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            margin: 8px 0;
+        }
+
+        .navigation .logo::after {
+            content: "NEXICONIA\\A BOOKSTORE";
+            white-space: pre;
+            color: var(--nexiconia-ink);
+            font: 700 13px/1.05 Georgia, serif;
+            letter-spacing: .14em;
+        }
+
+        .navigation nav,
+        .navigation ul {
+            padding-top: 0;
+        }
+
+        .navigation li {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .navigation li a {
+            color: var(--nexiconia-ink);
+        }
+
+        .navigation li a:hover {
+            color: var(--nexiconia-amber);
+        }
+
+        .navigation .form-inline {
+            padding: 10px 0 !important;
+        }
+
+        .navigation .form-control {
+            min-width: 170px;
+            border: 1px solid #d8d0c4;
+            border-radius: 999px;
+            background: var(--nexiconia-paper);
+        }
+
+        .navigation .btn-success,
+        .navigation .social_icon i,
+        .navigation .social_icon a {
+            color: var(--nexiconia-amber) !important;
+        }
+
+        .brand-intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding: 122px 8vw 36px;
+            background: var(--nexiconia-cream);
+        }
+
+        .brand-intro-copy {
+            max-width: 700px;
+        }
+
+        .brand-eyebrow {
+            margin: 0 0 12px;
+            color: var(--nexiconia-amber);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .brand-intro h1 {
+            margin: 0;
+            color: var(--nexiconia-ink);
+            font: 700 clamp(38px, 5vw, 72px)/.98 Georgia, serif;
+            letter-spacing: -.035em;
+        }
+
+        .brand-intro p {
+            max-width: 560px;
+            margin: 22px 0 0;
+            color: var(--nexiconia-muted);
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        .brand-intro-mark {
+            display: grid;
+            width: 118px;
+            height: 118px;
+            flex: 0 0 118px;
+            place-items: center;
+            border: 1px solid var(--nexiconia-amber);
+            border-radius: 50%;
+            color: var(--nexiconia-amber);
+            font: 700 44px Georgia, serif;
+            transform: rotate(8deg);
+        }
+
+        .nexiconia-toast {
+            position: fixed;
+            top: 96px;
+            right: 24px;
+            z-index: 1100;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            width: min(360px, calc(100vw - 32px));
+            padding: 16px 18px;
+            border: 1px solid rgba(217, 133, 59, .35);
+            border-radius: 12px;
+            background: var(--nexiconia-paper);
+            box-shadow: 0 16px 40px rgba(23, 42, 58, .2);
+            color: var(--nexiconia-ink);
+            animation: nexiconia-toast-in .25s ease-out;
+        }
+
+        .nexiconia-toast-icon {
+            display: grid;
+            width: 28px;
+            height: 28px;
+            flex: 0 0 28px;
+            place-items: center;
+            border-radius: 50%;
+            background: #e9f4e8;
+            color: #2f7d45;
+        }
+
+        .nexiconia-toast strong {
+            display: block;
+            margin-bottom: 3px;
+            font: 700 16px Georgia, serif;
+        }
+
+        .nexiconia-toast p {
+            margin: 0;
+            color: var(--nexiconia-muted);
+            font-size: 14px;
+        }
+
+        .nexiconia-toast-close {
+            margin-left: auto;
+            border: 0;
+            background: transparent;
+            color: var(--nexiconia-muted);
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .nexiconia-toast.is-leaving {
+            animation: nexiconia-toast-out .2s ease-in forwards;
+        }
+
+        @keyframes nexiconia-toast-in {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes nexiconia-toast-out {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-12px); }
+        }
+
+        .carousel {
+            height: auto;
+            margin-bottom: 64px;
+            background: var(--nexiconia-ink);
+        }
+
+        .carousel-item img {
+            display: block;
+            max-height: 560px;
+            object-fit: cover;
+        }
+
+        .featured_boks,
+        .arrivals {
+            padding-top: 24px;
+        }
+
+        .featured_boks h1,
+        .arrivals h1 {
+            color: var(--nexiconia-ink);
+            font: 700 clamp(32px, 4vw, 48px)/1.1 Georgia, serif;
+            letter-spacing: -.02em;
+        }
+
+        .featured_boks .featured_book_box .featured_book_card,
+        .arrivals .arrivals_box .arrivals_card {
+            border: 1px solid #e4dbce;
+            border-radius: 10px;
+            background: var(--nexiconia-paper);
+            box-shadow: 0 8px 22px rgba(23, 42, 58, .05);
+        }
+
+        .featured_boks .featured_book_box .featured_book_card:hover,
+        .arrivals .arrivals_box .arrivals_card:hover {
+            box-shadow: 0 14px 28px rgba(23, 42, 58, .12);
+            transform: translateY(-3px);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .featured_boks .featured_book_box .featured_book_card .featurde_book_tag h5,
+        .arrivals .arrivals_box .arrivals_card .arrivals_tag p {
+            color: var(--nexiconia-ink);
+            font-family: Georgia, serif;
+        }
+
+        footer {
+            margin-top: 72px;
+            background: var(--nexiconia-ink);
+            color: #f7f1e7;
+        }
+
+        footer .footer_main .tag h1,
+        footer .footer_main .tag a,
+        footer .footer_main .tag p,
+        footer .end {
+            color: #f7f1e7;
+        }
+
+        footer .end span {
+            color: #f2b56d;
+        }
+
+        @media (max-width: 1050px) {
+            .navigation {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px 18px;
+                padding: 8px 3vw;
+            }
+
+            .navigation .logo {
+                min-width: auto;
+            }
+
+            .navigation ul {
+                order: 3;
+                width: 100%;
+                text-align: center;
+            }
+
+            .brand-intro {
+                padding-top: 170px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .brand-intro {
+                padding: 150px 7vw 28px;
+            }
+
+            .brand-intro-mark {
+                display: none;
+            }
+
+            .navigation li {
+                padding: 0 8px;
+                font-size: 11px;
+            }
+
+            .navigation .form-control {
+                min-width: 125px;
+            }
+        }
     </style>
            
 
 </head>
 <body>
+    @if (session('message'))
+        <div class="nexiconia-toast" role="status" aria-live="polite">
+            <span class="nexiconia-toast-icon" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <div>
+                <strong>Added to your cart</strong>
+                <p>{{ session('message') }}</p>
+            </div>
+            <button class="nexiconia-toast-close" type="button" aria-label="Close notification">&times;</button>
+        </div>
+    @endif
     
     <section>
         <nav class="navigation">
             <div class="logo">
-                <img src="{{ asset('Images\logo.png') }}" alt="logo">
+                <img src="{{ asset('Images/logo.png') }}" alt="Nexiconia Bookstore logo">
             </div>
 
             <ul>
@@ -597,18 +908,27 @@
         </nav>
     </section>
      
+    <header class="brand-intro">
+        <div class="brand-intro-copy">
+            <p class="brand-eyebrow">A quieter place for good stories</p>
+            <h1>Find your next<br>favorite read.</h1>
+            <p>Explore a thoughtfully selected collection of books for curious minds, generous imaginations, and every kind of reader.</p>
+        </div>
+        <div class="brand-intro-mark" aria-hidden="true">N</div>
+    </header>
+
     <!--Banner-->
 
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('Images\main_banner.png') }}" class="d-block w-100" alt="carousel1">
+                <img src="{{ asset('Images/main_banner.png') }}" class="d-block w-100" alt="Featured books at Nexiconia Bookstore">
               </div>
           <div class="carousel-item">
-            <img src="{{ asset('Images\banner1.png') }}" class="d-block w-100" alt="carousel2">
+            <img src="{{ asset('Images/banner1.png') }}" class="d-block w-100" alt="Explore new books at Nexiconia Bookstore">
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('Images\banner2.png') }}" class="d-block w-100" alt="carousel3">
+            <img src="{{ asset('Images/banner2.png') }}" class="d-block w-100" alt="Discover your next read">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -655,7 +975,10 @@
                     <p class="writer">Mike Berenstain</p>
                     <div class="categories">Children's Books</div>
                     <p class="book_price">₱ 250.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="The Berenstain Bears' Big Track Meet">
+                        <input type="hidden" name="price" value="250">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -677,7 +1000,10 @@
                     <p class="writer"> Xio Axelrod</p>
                     <div class="categories">Teens & Young Adult</div>
                     <p class="book_price">₱ 720.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="The Girl with Stars in Her Eyes">
+                        <input type="hidden" name="price" value="720">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -699,7 +1025,10 @@
                     <p class="writer"> Luna McNamara</p>
                     <div class="categories">Fantasy, Romance</div>
                     <p class="book_price">₱ 999.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="Psyche and Eros">
+                        <input type="hidden" name="price" value="999">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -721,7 +1050,10 @@
                     <p class="writer">Soman Chainani</p>
                     <div class="categories">Juvenile Fiction</div>
                     <p class="book_price">₱ 450.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="The School of Good and Evil">
+                        <input type="hidden" name="price" value="450">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -743,7 +1075,10 @@
                     <p class="writer">Bella Mackie</p>
                     <div class="categories">Fiction</div>
                     <p class="book_price">₱ 599.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="How to Kill Your Family">
+                        <input type="hidden" name="price" value="599">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -765,7 +1100,10 @@
                     <p class="writer">Andy Griffiths</p>
                     <div class="categories">Children's Books</div>
                     <p class="book_price">₱ 839.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="The 117-Story Treehouse">
+                        <input type="hidden" name="price" value="839">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -787,7 +1125,10 @@
                     <p class="writer">Sally Thorne</p>
                     <div class="categories">Contemporary Fiction</div>
                     <p class="book_price">₱ 899.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="Second First Impressions">
+                        <input type="hidden" name="price" value="899">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -809,7 +1150,10 @@
                     <p class="writer">Anthony Doerr</p>
                     <div class="categories">Literature & Fiction</div>
                     <p class="book_price">₱ 999.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="All the Light We Cannot See">
+                        <input type="hidden" name="price" value="999">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -831,7 +1175,10 @@
                     <p class="writer">Becky Albertalli</p>
                     <div class="categories">Teens & Young Adult</div>
                     <p class="book_price">₱ 650.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="What if It's Us">
+                        <input type="hidden" name="price" value="650">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -849,11 +1196,14 @@
                 </div>
 
                 <div class="featurde_book_tag">
-                    <h5>The House in the Gerulean Sea</h5>
+                    <h5>The House in the Cerulean Sea</h5>
                     <p class="writer">TJ Klune</p>
                     <div class="categories">Science Fiction and Fantasy</div>
                     <p class="book_price">₱ 999.00</p>
-                    <form action="" method="" class="form-inline" style="float: right; margin-right: 10px;">
+                    <form action="{{ route('catalog.add') }}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
+                        @csrf
+                        <input type="hidden" name="title" value="The House in the Cerulean Sea">
+                        <input type="hidden" name="price" value="999">
                     
                         <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
                     
@@ -1214,5 +1564,28 @@
 
 
     
+    @if (session('message'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const toast = document.querySelector('.nexiconia-toast');
+                const closeButton = document.querySelector('.nexiconia-toast-close');
+
+                const dismissToast = function () {
+                    if (!toast) {
+                        return;
+                    }
+
+                    toast.classList.add('is-leaving');
+                    setTimeout(function () {
+                        toast.remove();
+                    }, 200);
+                };
+
+                closeButton.addEventListener('click', dismissToast);
+                setTimeout(dismissToast, 4000);
+            });
+        </script>
+    @endif
+
 </body>
 </html>

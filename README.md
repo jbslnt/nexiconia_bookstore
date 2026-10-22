@@ -1,6 +1,6 @@
 # Nexiconia Bookstore
 
-A Laravel-based e-commerce application for browsing products, managing a shopping cart, and placing orders. The project also includes an admin area for managing products and updating order status.
+**Nexiconia Bookstore** is a full-stack Laravel e-commerce platform where customers can discover books, manage carts, place orders, and explore new arrivals, while administrators manage inventory, products, and fulfillment.
 
 ## Stack
 

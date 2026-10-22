@@ -50,6 +50,7 @@ route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
 route::get('/search', [HomeController::class, 'search']);
 
 route::post('/addtocart/{id}', [HomeController::class, 'addtocart']);
+route::post('/add-curated-book', [HomeController::class, 'addCuratedBook'])->name('catalog.add');
 
 route::get('/showcart', [HomeController::class, 'showcart']);
 
@@ -75,7 +76,6 @@ Route::get('/p3', [ArrivalsController::class, 'p3'])->name('p3');
 Route::get('/p4', [ArrivalsController::class, 'p4'])->name('p4');
 
 Route::get('/p5', [ArrivalsController::class, 'p5'])->name('p5');
-
 
 
 

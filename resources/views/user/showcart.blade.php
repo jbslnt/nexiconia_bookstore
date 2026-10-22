@@ -305,6 +305,54 @@
             color: #f7a623;
             margin-left: 10px;
         }
+
+        :root {
+            --nexiconia-ink: #172a3a;
+            --nexiconia-cream: #f8f4ec;
+            --nexiconia-paper: #fffdf8;
+            --nexiconia-amber: #d9853b;
+        }
+
+        body {
+            background: var(--nexiconia-cream);
+            color: var(--nexiconia-ink);
+        }
+
+        .table-container {
+            border: 1px solid #e4dbce;
+            background: var(--nexiconia-paper);
+            box-shadow: 0 18px 45px rgba(23, 42, 58, .09);
+        }
+
+        .table-container h1 {
+            color: var(--nexiconia-ink);
+            font: 700 38px Georgia, serif;
+        }
+
+        table th {
+            background: var(--nexiconia-ink);
+            border-color: var(--nexiconia-ink);
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        table td {
+            border-color: #e4dbce;
+        }
+
+        .confirm-button-container .btn-success {
+            background-color: var(--nexiconia-amber) !important;
+            border-color: var(--nexiconia-amber) !important;
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-weight: 700;
+        }
+
+        .confirm-button-container .btn-success:hover {
+            background-color: var(--nexiconia-ink) !important;
+            border-color: var(--nexiconia-ink) !important;
+        }
     </style>
 </head>
 <body>

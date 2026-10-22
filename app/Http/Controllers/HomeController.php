@@ -76,6 +76,7 @@ class HomeController extends Controller
 
             $cart=new cart;
 
+            $cart->user_id=$user->id;
             $cart->name=$user->name;
             $cart->phone=$user->phone;
             $cart->address=$user->address;
@@ -99,15 +100,47 @@ class HomeController extends Controller
         }
     }
 
+    public function addCuratedBook(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('login');
+        }
+
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'quantity' => ['required', 'integer', 'min:1'],
+        ]);
+
+        $user = Auth::user();
+        $cart = new Cart;
+        $cart->user_id = $user->id;
+        $cart->name = $user->name;
+        $cart->phone = $user->phone;
+        $cart->address = $user->address;
+        $cart->product_title = $validated['title'];
+        $cart->price = $validated['price'];
+        $cart->quantity = $validated['quantity'];
+        $cart->save();
+
+        return redirect()->back()->with('message', 'Product Added Successfully');
+    }
+
 
         public function showcart()
         {
 
            $user=auth()->user();
 
-           $cart=cart::where('phone',$user->phone)->get();
+           $cart=cart::where(function ($query) use ($user) {
+               $query->where('user_id', $user->id)
+                   ->orWhere(function ($legacyQuery) use ($user) {
+                       $legacyQuery->whereNull('user_id')
+                           ->where('phone', $user->phone);
+                   });
+           })->get();
             
-            $count=cart::where('phone',$user->phone)->count();
+            $count=$cart->count();
            
 
             return view('user.showcart', compact('count', 'cart'));
