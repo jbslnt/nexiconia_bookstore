@@ -2,538 +2,367 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexiconia Bookstore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <meta name="description" content="Review your Nexiconia Bookstore cart.">
+    <title>Your reading bag | Nexiconia Bookstore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/modern-storefront.css') }}">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-           
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; 
-        }
-
-        section .navigation{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            box-shadow: 0 0 10px #f7a623;
-            background: #fff;
-            position: fixed;
-            left: 0;
-            z-index: 100;
-        }
-        
-        section nav .logo img{
-            width: 100px;
-            cursor: pointer;
-            margin: 8px 0;
-        }
-        
-        section nav ul {
-            list-style: none;
-            padding-top: 20px;
-        }
-
-        section nav li {
-            display: inline-block;
-            position: relative; /* Add this for the dropdown positioning */
-            padding: 0 20px 0 20px;
-            font-size: large;
-        }
-
-        section nav li a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        section nav li a:hover {
-            color: #f7a623;
-        }
-
-        .dropdown-content {
-            display: none; /* Hide the dropdown by default */
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            padding: 0; /* Reset padding */
-        }
-
-        .dropdown-content li {
-            display: block; /* Make sure dropdown items are block elements */
-        }
-
-        .dropdown-content li a {
-            color: black; /* Set dropdown link color */
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: medium; /* Adjust font size if needed */
-        }
-
-        .dropdown-content li a:hover {
-            background-color: #f1f1f1; /* Add a background color on hover */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block; /* Show the dropdown on hover */
-        }
-
-        
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-        section nav .box{
-          max-width: 400px;
-          width: 100%;
-        }
-        section nav .box .search-box{
-          position: relative;
-          height: 50px;
-          margin: auto;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-          border-radius: 25px;
-        }
-        
-        section nav .search-box input{
-         position: absolute;
-         height: 100%;
-         width: 100%;
-         border-radius: 25px;
-         background: #fff;
-         outline: none;
-         border: none;
-         padding-left: 20px;
-         font-size: 18px;
-        }
-        section nav .search-box .icon{
-          position: absolute;
-          right: -2px;
-          top: 0;
-          width: 50px;
-          background: #f7a623;
-          height: 100%;
-          text-align: center;
-          line-height: 50px;
-          color: #fff;
-          font-size: 20px;
-          border-radius: 0 25px 25px 0;
-        }
-        section nav #check:checked ~ .search-box .icon{
-            background: #f7a623;
-            color: #FFF;
-            width: 60px;
-            border-radius: 0 25px 25px 0;
-          }
-        section nav #check{
-            display: none;
-          }
-        
-        
-        section nav .social_icon i{
-            margin: 0 20px;
-            font-size: 30px;
-            color: #f7a623;
-        }
-        
-        section nav .social_icon i:hover{
-            color: black;
-            cursor: pointer;
-        }
-        
-
-        .content-wrapper {
-            margin-top: 120px; 
-            flex: 1;
-        }
-
-        .product {
-            width: 100%; 
+        .cart-page {
+            max-width: 1280px;
             margin: 0 auto;
-            padding-top: 50px;
-            margin-bottom: 100px;
+            padding: 64px clamp(20px, 6vw, 90px) 90px;
         }
 
-        .table-container {
-            width: 90%;
-            padding: 20px;
-            background-color: #ffffff; 
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
-            border-radius: 10px; 
-            color: #000000;
-            margin-left: 5%;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Ensures the table layout is fixed */
-        }
-
-        table th, table td {
-            padding: 15px;
-            text-align: left;
-            border: 1px solid #ddd;
-            word-wrap: break-word; /* Ensures long words wrap to the next line */
-            vertical-align: middle; /* Vertically centers the content */
-        }
-
-        table th {
-            background-color: black;
-            color: white;
-        }
-
-        table td.center {
-            text-align: center; /* Horizontally centers the content */
-        }
-
-        .user-icon-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .user-icon {
-            cursor: pointer;
-        }
-
-        .user-dropdown {
-            height: 200px;
-            position: absolute;
-            top: 30px;
-            left: 0;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .user-dropdown a {
-            display: block;
-            color: #333;
-            text-decoration: none;
-            padding: 8px 0;
-        }
-
-        .user-icon-container:hover .user-dropdown {
-            display: inline-block;
-        }
-
-        .confirm-button-container {
-            text-align: right;
-        }
-
-
-        /*Footer*/
-        
-        footer{
-            width: 100%;
-            background: #eaeaea;
-            flex-shrink: 0;
-        }
-        
-        footer .footer_main{
-            width: 100%;
+        .cart-heading {
             display: flex;
-            justify-content: space-around;
-        }
-        
-        footer .footer_main .tag{
-            margin: 10px 0;
-        }
-        
-        footer .footer_main .tag img{
-            width: 200px;
-            height: 10vh;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        footer .footer_main .tag p{
-            width: 250px;
-            line-height: 22px;
-            text-align: justify;
-        }
-        
-        footer .footer_main .tag h1{
-            font-size: 25px;
-            font-weight: bold;
-            margin: 25px 0;
-            color: #000;
-        }
-        
-        footer .footer_main .tag a{
-            display: block;
-            color: black;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 20px;
-        }
-        
-        footer .footer_main .tag i{
-            margin-right: 10px;
-        }
-        
-        footer .footer_main .tag .social_link i{
-            margin: 0 5px;
-        }
-        
-        footer .end{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            color: #000;
-        }
-        
-        footer .end span{
-            color: #f7a623;
-            margin-left: 10px;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 36px;
         }
 
-        :root {
-            --nexiconia-ink: #172a3a;
-            --nexiconia-cream: #f8f4ec;
-            --nexiconia-paper: #fffdf8;
-            --nexiconia-amber: #d9853b;
+        .cart-heading h1 {
+            margin: 0;
+            font: 700 clamp(42px, 6vw, 72px)/.95 "Playfair Display", serif;
+            letter-spacing: -.05em;
         }
 
-        body {
-            background: var(--nexiconia-cream);
-            color: var(--nexiconia-ink);
-        }
-
-        .table-container {
-            border: 1px solid #e4dbce;
-            background: var(--nexiconia-paper);
-            box-shadow: 0 18px 45px rgba(23, 42, 58, .09);
-        }
-
-        .table-container h1 {
-            color: var(--nexiconia-ink);
-            font: 700 38px Georgia, serif;
-        }
-
-        table th {
-            background: var(--nexiconia-ink);
-            border-color: var(--nexiconia-ink);
+        .cart-heading p {
+            max-width: 280px;
+            margin: 0;
+            color: var(--muted);
             font-size: 13px;
-            letter-spacing: .08em;
+            line-height: 1.6;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .cart-list,
+        .cart-summary {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--paper);
+        }
+
+        .cart-list {
+            overflow: hidden;
+        }
+
+        .cart-list-header {
+            display: grid;
+            grid-template-columns: 1fr 110px 130px 42px;
+            gap: 16px;
+            padding: 14px 22px;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .12em;
             text-transform: uppercase;
         }
 
-        table td {
-            border-color: #e4dbce;
+        .cart-row {
+            display: grid;
+            grid-template-columns: 1fr 110px 130px 42px;
+            gap: 16px;
+            align-items: center;
+            padding: 24px 22px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .confirm-button-container .btn-success {
-            background-color: var(--nexiconia-amber) !important;
-            border-color: var(--nexiconia-amber) !important;
-            border-radius: 999px;
-            padding: 10px 22px;
+        .cart-row:last-child {
+            border-bottom: 0;
+        }
+
+        .cart-book {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 0;
+        }
+
+        .cart-book-cover {
+            display: grid;
+            width: 52px;
+            height: 68px;
+            flex: 0 0 52px;
+            place-items: center;
+            border-radius: 5px;
+            background: linear-gradient(145deg, #ead3bb, #f5eee6);
+            color: var(--accent);
+            font: 700 27px "Playfair Display", serif;
+        }
+
+        .cart-book h2 {
+            overflow: hidden;
+            margin: 0;
+            color: var(--ink);
+            font: 700 17px/1.25 "Playfair Display", serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .cart-book p,
+        .cart-cell-label {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .cart-quantity {
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .cart-price {
+            color: var(--ink);
+            font-size: 14px;
             font-weight: 700;
         }
 
-        .confirm-button-container .btn-success:hover {
-            background-color: var(--nexiconia-ink) !important;
-            border-color: var(--nexiconia-ink) !important;
+        .remove-link {
+            display: grid;
+            width: 30px;
+            height: 30px;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--muted);
+            font-size: 18px;
+            transition: .2s;
+        }
+
+        .remove-link:hover {
+            background: #f8e9e3;
+            color: #b7503d;
+        }
+
+        .cart-summary {
+            position: sticky;
+            top: 100px;
+            padding: 26px;
+        }
+
+        .cart-summary h2 {
+            margin: 0 0 24px;
+            font: 700 27px "Playfair Display", serif;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .summary-line strong {
+            color: var(--ink);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 0;
+            color: var(--ink);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .summary-total strong {
+            color: var(--accent);
+            font-size: 21px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .continue-shopping {
+            display: block;
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .continue-shopping:hover {
+            color: var(--accent);
+        }
+
+        .cart-empty {
+            padding: 75px 24px;
+            text-align: center;
+        }
+
+        .cart-empty-mark {
+            display: grid;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--soft);
+            color: var(--accent);
+            font-size: 28px;
+        }
+
+        .cart-empty h2 {
+            margin: 0 0 10px;
+            font: 700 28px "Playfair Display", serif;
+        }
+
+        .cart-empty p {
+            margin: 0 auto 24px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .cart-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .cart-page {
+                padding-top: 42px;
+            }
+
+            .cart-list-header {
+                display: none;
+            }
+
+            .cart-row {
+                grid-template-columns: 1fr auto;
+                gap: 12px;
+                padding: 20px 16px;
+            }
+
+            .cart-book {
+                grid-column: 1 / -1;
+            }
+
+            .cart-quantity::before {
+                content: "Qty ";
+                color: var(--muted);
+                font-weight: 400;
+            }
+
+            .cart-price {
+                text-align: right;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <a class="brand" href="{{ url('/') }}" aria-label="Nexiconia Bookstore home">
+            <span class="brand-mark">N</span>
+            <span><strong>Nexiconia</strong><small>BOOKSTORE</small></span>
+        </a>
 
-     <section>
-            <nav class="navigation">
-                <div class="logo">
-                    <img src="{{ asset('Images\logo.png') }}" alt="logo">
-                </div>
-    
-                <ul>
-                    <li><a href="{{url('redirect')}}">Home</a></li>
-                    <li class="dropdown">
-                        <a>Books</a>
-                        <ul class="dropdown-content">
-                            <li><a href="">Fiction</a></li>
-                            <li><a href="">History</a></li>
-                            <li><a href="">Poetry</a></li>
-                            <li><a href="">Poltical Science</a>
-                            <li><a href="">History</a>
-                            <li><a href="">Religion</a>
-                            <li><a href="">Social Science</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="{{url('about')}}">About</a></li>
-                    
-                </ul>
-    
-                <form action="{{url('search')}}" method="get" class="form-inline" style="float: right; padding: 10px;">
-                @csrf
-            
-                <input class="form-control" type="search" name="search" placeholder="Type here..." style="display: inline-block; width: auto;">
-            
-                <input type="submit" value="Search" class="btn btn-success" style="display: inline-block; width: auto; background-color: #f7a623; border-color: #f7a623;" > 
-            
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="{{ url('/') }}">Home</a>
+            <a href="{{ url('/') }}#catalog">Browse books</a>
+            <a href="{{ url('about') }}">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <form class="search-form" action="{{ url('search') }}" method="get">
+                <label class="sr-only" for="cart-search">Search books</label>
+                <input id="cart-search" type="search" name="search" placeholder="Search books...">
+                <button type="submit" aria-label="Search"><span>⌕</span></button>
             </form>
-                
-               
-                
-    
-               
-                        
-                    
-                    <div class="user-icon-container">
-    
-    
-                            @if (Route::has('login'))
-                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                    @auth
-    
-                                    <div class="social_icon">
-                                        <a href="{{url('showcart')}}" style="font-weight: bold; color: black;">
-                                            <i class="fa-solid fa-shopping-cart" style="margin-right: 0;"></i>Cart[{{$count}}]
-                                        </a>
-                                        
-    
-                                    <a href="{{ route('profile.show') }}">
-                                        <i class="fas fa-user user-icon"></i>
-                                    </a>
-                                    
-                                    
-                                    @else
-                                        <li><a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a></li>
-                                        @if (Route::has('register'))
-                                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a></li>
-                                        @endif
-                                    @endauth
-                                </div>
-                            @endif
-                    </div>
-                    
-    
-    
-            </nav>
-        </section>
-     
+            <a class="cart-link" href="{{ url('showcart') }}" aria-label="View cart"><span>Bag</span><b>{{ $count }}</b></a>
+            <a class="account-link" href="{{ route('profile.show') }}" aria-label="Your profile">◎</a>
+        </div>
+    </header>
 
-    <div class="content-wrapper">
-        <div class="product">
-            <div class="table-container">
-                @if(Session::has('message'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: relative; padding-right: 50px;">
-                        {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-                <form action="{{url('order')}}" method="POST">
+    @if (session('message'))
+        <div class="toast" role="status"><span class="toast-check">✓</span><span>{{ session('message') }}</span></div>
+    @endif
+
+    @php
+        $cartTotal = $cart->sum(fn ($item) => (float) $item->price * (int) $item->quantity);
+    @endphp
+
+    <main class="cart-page">
+        <div class="cart-heading">
+            <div><p class="eyebrow">Your collection</p><h1>Reading bag.</h1></div>
+            <p>Keep the stories that caught your attention close. Review your selection before placing your order.</p>
+        </div>
+
+        @if ($cart->isEmpty())
+            <section class="cart-list cart-empty">
+                <div class="cart-empty-mark">♡</div>
+                <h2>Your bag is waiting.</h2>
+                <p>Find a story that speaks to you and it will appear here.</p>
+                <a class="button" href="{{ url('/') }}#catalog">Browse books <span>→</span></a>
+            </section>
+        @else
+            <div class="cart-layout">
+                <form id="order-form" class="cart-list" action="{{ url('order') }}" method="POST">
                     @csrf
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Book Title</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (($cart) as $carts)
-                            <tr>
-                                <td>
-                                    <input type="text" name="productname[]" value="{{$carts->product_title}}" hidden>
-                                    {{$carts->product_title}}
-                                </td>
-                                <td>
-                                    <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden>
-                                    {{$carts->quantity}}
-                                </td>
-                                <td>
-                                    <input type="text" name="price[]" value="{{$carts->price}}" hidden>
-                                    {{$carts->price}}
-                                </td>
-                                <td class="center">
-                                    <a href="{{url('delete', $carts->id)}}">
-                                        <i class="fa-solid fa-trash" style="color: black;"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="confirm-button-container">
-                        <button class="btn btn-success" style="margin-top: 50px; background-color: #f7a623; border-color: #f7a623;">Confirm Order</button>
-                    </div>
+                    <div class="cart-list-header"><span>Book</span><span>Quantity</span><span>Price</span><span></span></div>
+                    @foreach ($cart as $cartItem)
+                        <div class="cart-row">
+                            <div class="cart-book">
+                                <span class="cart-book-cover" aria-hidden="true">N</span>
+                                <div>
+                                    <h2>{{ $cartItem->product_title }}</h2>
+                                    <p>Ready to become part of your library</p>
+                                    <input type="hidden" name="productname[]" value="{{ $cartItem->product_title }}">
+                                    <input type="hidden" name="quantity[]" value="{{ $cartItem->quantity }}">
+                                    <input type="hidden" name="price[]" value="{{ $cartItem->price }}">
+                                </div>
+                            </div>
+                            <span class="cart-quantity">{{ $cartItem->quantity }}</span>
+                            <span class="cart-price">₱ {{ number_format((float) $cartItem->price * (int) $cartItem->quantity, 2) }}</span>
+                            <a class="remove-link" href="{{ url('delete', $cartItem->id) }}" aria-label="Remove {{ $cartItem->product_title }} from cart">×</a>
+                        </div>
+                    @endforeach
                 </form>
+
+                <aside class="cart-summary">
+                    <h2>Order summary</h2>
+                    <div class="summary-line"><span>Books</span><strong>{{ $cart->count() }}</strong></div>
+                    <div class="summary-line"><span>Delivery</span><strong>Free</strong></div>
+                    <div class="summary-total"><span>Total</span><strong>₱ {{ number_format($cartTotal, 2) }}</strong></div>
+                    <button class="button checkout-button" type="submit" form="order-form">Confirm order <span>→</span></button>
+                    <a class="continue-shopping" href="{{ url('/') }}#catalog">← Continue browsing</a>
+                </aside>
             </div>
-        </div>
-    </div>
+        @endif
+    </main>
 
-
-
-
-
-    <footer>
-        <div class="footer_main">
-
-            <div class="tag">
-                <img src="{{ asset('Images\logo2.png') }}">
-                
-                   
-            </div>
-
-            <div class="tag">
-                <h1>Quick Link</h1>
-                <a href="#">Home</a>
-                <a href="#">Books</a>
-                <a href="#">About</a>
-                
-            </div>
-
-            <div class="tag">
-                <h1>Contact Info</h1>
-                <a href="#"><i class="fa-solid fa-phone"></i>+63 9353611374</a>
-                <a href="#"><i class="fa-solid fa-envelope"></i>nexiconiabookstore@gmail.com</a>
-                
-            </div>
-
-            <div class="tag">
-            <h1>Follow Us</h1>
-                    <div class="social_link">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-            </div>
-        
-
-           
-        </div>
-
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
-
+    <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark">N</span><h2>Nexiconia</h2><p>A quieter place for good stories.</p></div>
+        <div><h3>Explore</h3><a href="{{ url('/') }}">Home</a><a href="{{ url('/') }}#catalog">Browse books</a><a href="{{ url('about') }}">About us</a></div>
+        <div><h3>Contact</h3><a href="mailto:nexiconiabookstore@gmail.com">nexiconiabookstore@gmail.com</a><a href="tel:+639353611374">+63 935 361 1374</a></div>
+        <div class="footer-bottom"><span>© {{ date('Y') }} Nexiconia Bookstore</span><span>Made for readers.</span></div>
     </footer>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-``

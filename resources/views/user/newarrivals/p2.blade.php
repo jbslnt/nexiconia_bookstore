@@ -362,6 +362,7 @@
     </style>
 
 
+    <link rel="stylesheet" href="{{ asset('css/nexiconia-customer.css') }}">
 </head>
 <body>
     
@@ -457,15 +458,15 @@
                 <div class="product_details">
                     <h1>Life: My Story Through History </h1>
                     <h2>By Pope Francis</h2>
-                    <h3>₱1,450.00</h3>
+                    <h3>Ã¢â€šÂ±1,450.00</h3>
                     <h4>Genre: Biography & Memoris, Religious</h4>
                     <p>
                         An extraordinary personal and historical journey, Life is the story of a man and a world in dramatic change. Pope Francis recalls his life through memories and observations of the most significant occurrences of the past eight decades. The book opens with three-year-old Jorge in the kitchen with his mother in Argentina as World War II breaks out, and he goes on to witness several historic events:
                         <br><br>
-                        • the fall of the Berlin Wall<br>
-                        • Videla’s coup in Argentina<br>
-                        • the moon landing in 1969<br>
-                        • and even the 1986 World Cup in which Maradona scored the unforgettable “hand of God” goal.<br><br>
+                        Ã¢â‚¬Â¢ the fall of the Berlin Wall<br>
+                        Ã¢â‚¬Â¢ VidelaÃ¢â‚¬â„¢s coup in Argentina<br>
+                        Ã¢â‚¬Â¢ the moon landing in 1969<br>
+                        Ã¢â‚¬Â¢ and even the 1986 World Cup in which Maradona scored the unforgettable Ã¢â‚¬Å“hand of GodÃ¢â‚¬Â goal.<br><br>
                         Here are the frank assessments and intimate insights of a pastor reflecting on the Nazi extermination of the Jews, the atomic bombings of Hiroshima and Nagasaki, the 2001 terrorist attack on America and the collapse of the Twin Towers, the great economic recession of 2008, the Covid-19 pandemic, the retirement of Pope Benedict XVI, and the subsequent conclave that elected him Pontiff.
                         <br><br>
                         Translated from the Italian by Aubrey Botsford
@@ -532,7 +533,7 @@
            
         </div>
 
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
+        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT Ã‚Â© 2024. ALL RIGHTS RESERVED.</p>
 
     </footer>
 

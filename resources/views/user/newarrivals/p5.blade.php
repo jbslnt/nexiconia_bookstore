@@ -362,6 +362,7 @@
     </style>
 
 
+    <link rel="stylesheet" href="{{ asset('css/nexiconia-customer.css') }}">
 </head>
 <body>
     
@@ -457,12 +458,12 @@
                 <div class="product_details">
                     <h1>Nagahama to Be, or Not to Be </h1>
                     <h2>By Scarlet Beriko</h2>
-                    <h3>₱839.00</h3>
+                    <h3>Ã¢â€šÂ±839.00</h3>
                     <h4>Genre: Manga, Yaoi</h4>
                     <p>
-                        The Boys’ Love/BL school romance by the popular creator of Jackass! and Jealousy! (Digital version available early.)
+                        The BoysÃ¢â‚¬â„¢ Love/BL school romance by the popular creator of Jackass! and Jealousy! (Digital version available early.)
                         <br><br>
-                        Nagisa may look like a delinquent, but he’s just a typical teen trying to figure out what to do with his life. Nagisa’s best friend, Issa, already knows what his passion is: fish! Issa often skips school to work at the Nagahama fish market, and the two friends hang out together near the ocean almost every day. When Nagisa suspects that Issa has a girlfriend, it turns his world upside down. Is Nagisa in love with his best friend? And could his best friend possibly love him back?
+                        Nagisa may look like a delinquent, but heÃ¢â‚¬â„¢s just a typical teen trying to figure out what to do with his life. NagisaÃ¢â‚¬â„¢s best friend, Issa, already knows what his passion is: fish! Issa often skips school to work at the Nagahama fish market, and the two friends hang out together near the ocean almost every day. When Nagisa suspects that Issa has a girlfriend, it turns his world upside down. Is Nagisa in love with his best friend? And could his best friend possibly love him back?
                         </p>
                 </div>
             </div>
@@ -526,7 +527,7 @@
            
         </div>
 
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
+        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT Ã‚Â© 2024. ALL RIGHTS RESERVED.</p>
 
     </footer>
 

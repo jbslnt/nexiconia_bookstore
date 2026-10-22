@@ -257,6 +257,112 @@
             color: #555; 
             text-align: justify;
         }
+
+        :root {
+            --nexiconia-ink: #172a3a;
+            --nexiconia-cream: #f8f4ec;
+            --nexiconia-paper: #fffdf8;
+            --nexiconia-amber: #d9853b;
+            --nexiconia-muted: #66717a;
+        }
+
+        body {
+            background: var(--nexiconia-cream);
+            color: var(--nexiconia-ink);
+        }
+
+        .navigation {
+            min-height: 78px;
+            padding: 0 4vw;
+            border-bottom: 1px solid rgba(23, 42, 58, .08);
+            box-shadow: 0 8px 24px rgba(23, 42, 58, .08) !important;
+        }
+
+        .navigation .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .product {
+            width: min(1100px, 90%);
+            margin-top: 110px;
+        }
+
+        .product .product_box {
+            display: grid;
+            grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .product .product_box .product_card,
+        .product .product_box .product_card2 {
+            width: auto;
+            height: auto;
+            padding: 28px;
+            border: 1px solid #e4dbce;
+            border-radius: 16px;
+            background: var(--nexiconia-paper);
+            box-shadow: 0 16px 40px rgba(23, 42, 58, .08);
+        }
+
+        .product_image img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: contain;
+        }
+
+        .product .product_box .product_card2 .product_details h1 {
+            color: var(--nexiconia-ink);
+            font: 700 clamp(30px, 4vw, 50px)/1.05 Georgia, serif;
+        }
+
+        .product .product_box .product_card2 .product_details h2,
+        .product .product_box .product_card2 .product_details h3 {
+            color: var(--nexiconia-amber);
+        }
+
+        .product .product_box .product_card2 .product_details p {
+            color: var(--nexiconia-muted);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .quantity {
+            width: min(1100px, 90%);
+            margin: 0 auto 70px !important;
+            justify-content: flex-end;
+        }
+
+        .quantity .btn-primary {
+            background: var(--nexiconia-ink);
+            border-color: var(--nexiconia-ink);
+            border-radius: 999px;
+            padding: 10px 22px;
+        }
+
+        footer {
+            background: var(--nexiconia-ink);
+        }
+
+        footer .footer_main .tag h1,
+        footer .footer_main .tag a,
+        footer .footer_main .tag p,
+        footer .end {
+            color: #f7f1e7;
+        }
+
+        @media (max-width: 760px) {
+            .product .product_box {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .quantity {
+                justify-content: center;
+            }
+        }
         
         
         /*Quantity*/
@@ -362,6 +468,7 @@
     </style>
 
 
+    <link rel="stylesheet" href="{{ asset('css/nexiconia-customer.css') }}">
 </head>
 <body>
     
@@ -457,14 +564,14 @@
                 <div class="product_details">
                     <h1>Memory Piece: A Novel, Export Edition</h1>
                     <h2>By Lisa Ko</h2>
-                    <h3>₱1,064.00</h3>
+                    <h3>Ã¢â€šÂ±1,064.00</h3>
                     <h4>Genre: Fiction, Women's Fiction</h4>
                     <p>
                         The award-winning author of The Leavers offers a visionary novel of friendship, art, and ambition that asks: What is the value of a meaningful life?
                         <br><br>
-                        In the early 1980s, Giselle Chin, Jackie Ong, and Ellen Ng are three teenagers drawn together by their shared sense of alienation and desire for something different. “Allied in the weirdest parts of themselves,” they envision each other as artistic collaborators and embark on a future defined by freedom and creativity.
+                        In the early 1980s, Giselle Chin, Jackie Ong, and Ellen Ng are three teenagers drawn together by their shared sense of alienation and desire for something different. Ã¢â‚¬Å“Allied in the weirdest parts of themselves,Ã¢â‚¬Â they envision each other as artistic collaborators and embark on a future defined by freedom and creativity.
                         <br><br>
-                        By the time they are adults, their dreams are murkier. As a performance artist, Giselle must navigate an elite social world she never conceived of. As a coder thrilled by the internet’s early egalitarian promise, Jackie must contend with its more sinister shift toward monetization and surveillance. And as a community activist, Ellen confronts the increasing gentrification and policing overwhelming her New York City neighborhood. Over time their friendship matures and changes, their definitions of success become complicated, and their sense of what matters evolves. 
+                        By the time they are adults, their dreams are murkier. As a performance artist, Giselle must navigate an elite social world she never conceived of. As a coder thrilled by the internetÃ¢â‚¬â„¢s early egalitarian promise, Jackie must contend with its more sinister shift toward monetization and surveillance. And as a community activist, Ellen confronts the increasing gentrification and policing overwhelming her New York City neighborhood. Over time their friendship matures and changes, their definitions of success become complicated, and their sense of what matters evolves. 
                         <br><br>
                         Moving from the predigital 1980s to the art and tech subcultures of the 1990s to a strikingly imagined portrait of the 2040s, Memory Piece is an innovative and audacious story of three lifelong friends as they strive to build satisfying lives in a world that turns out to be radically different from the one they were promised.
                     </p>
@@ -530,7 +637,7 @@
            
         </div>
 
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
+        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT Ã‚Â© 2024. ALL RIGHTS RESERVED.</p>
 
     </footer>
 

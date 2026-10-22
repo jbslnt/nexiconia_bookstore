@@ -1,48 +1,31 @@
-   
-   
-   <!--Trending-->
-
-    <div class="featured_boks">
-
-        <h1>What's Trending</h1>
-
-
-        <div class="featured_book_box">
-
-            @foreach($data as $product)
-
-            <div class="featured_book_card">
-
-                <div class="featurde_book_img">
-                    <img src="/productimage/{{$product->image}}">
-                </div>
-
-                <div class="featurde_book_tag">
-                    <h5>{{$product->title}}</h5>
-                    <p class="writer">{{$product->author}}</p>
-                    <div class="categories">{{$product->genre}}</div>
-                    <p class="book_price">₱ {{$product->price}}</p>
-
-
-                    <form action="{{url('addtocart', $product->id)}}" method="POST" class="form-inline" style="float: right; margin-right: 10px;">
-                        @csrf
-                    
-                        <input type="number" value="1" min="1" class="form-control" name="quantity" style="width: 50px; margin-right: 5px; display: inline-block;">
-                    
-                        <input class="btn btn-primary" type="submit" value="Add to Cart" 
-                               style="background-color: #f7a623; border-color: #f7a623; display: inline-block; width: auto;">
-                    </form>
-                    
-
-
-                </div>               
-
-            </div>
-
-            @endforeach
-
-        </div>
-
-       
-
+@if ($data->isEmpty())
+    <div class="empty-state">
+        <span>◎</span>
+        <h3>Your next favorite book is on its way.</h3>
+        <p>There are no catalog products yet. Check back soon for new arrivals.</p>
     </div>
+@else
+    <div class="book-grid">
+        @foreach ($data as $product)
+            <article class="book-card">
+                <a class="book-cover" href="{{ url('p1') }}">
+                    <img src="{{ asset('productimage/' . $product->image) }}" alt="{{ $product->title }}">
+                    <span class="book-badge">In stock</span>
+                </a>
+                <div class="book-info">
+                    <p class="book-genre">{{ $product->genre }}</p>
+                    <h3>{{ $product->title }}</h3>
+                    <p class="book-author">{{ $product->author }}</p>
+                    <div class="book-footer">
+                        <strong>₱ {{ number_format((float) $product->price, 2) }}</strong>
+                        <form action="{{ url('addtocart', $product->id) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="quantity" value="1">
+                            <button class="icon-button" type="submit" aria-label="Add {{ $product->title }} to cart">+</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        @endforeach
+    </div>
+@endif

@@ -362,6 +362,7 @@
     </style>
 
 
+    <link rel="stylesheet" href="{{ asset('css/nexiconia-customer.css') }}">
 </head>
 <body>
     
@@ -457,14 +458,14 @@
                 <div class="product_details">
                     <h1>Moriarty the Patriot, Vol. 15  </h1>
                     <h2>By Ryosuke Takeuchi</h2>
-                    <h3>₱671.00</h3>
+                    <h3>Ã¢â€šÂ±671.00</h3>
                     <h4>Genre: Manga, Action & Adventure</h4>
                     <p>
-                        The untold story of Sherlock Holmes’ greatest rival, Moriarty!
+                        The untold story of Sherlock HolmesÃ¢â‚¬â„¢ greatest rival, Moriarty!
                         <br><br>
-                        Before he was Sherlock’s rival, Moriarty fought against the unfair class caste system in London by making sure corrupt nobility got their comeuppance. But even the most well-intentioned plans can spin out of control—will Moriarty’s dream of a more just and equal world turn him into a hero…or a monster?
+                        Before he was SherlockÃ¢â‚¬â„¢s rival, Moriarty fought against the unfair class caste system in London by making sure corrupt nobility got their comeuppance. But even the most well-intentioned plans can spin out of controlÃ¢â‚¬â€will MoriartyÃ¢â‚¬â„¢s dream of a more just and equal world turn him into a heroÃ¢â‚¬Â¦or a monster?
                         <br><br>
-                        Three years after the fateful night when William and Sherlock disappeared under the waves of the Thames, MI6 takes on a covert mission to stop a leak of sensitive information that could disrupt the balance of power between Great Britain and Russia. One stray bullet winds up revealing the existence of someone unexpected hiding behind the scenes, however. As rumblings of a great world war begin, it may finally be time to repent for the crimes of the past…
+                        Three years after the fateful night when William and Sherlock disappeared under the waves of the Thames, MI6 takes on a covert mission to stop a leak of sensitive information that could disrupt the balance of power between Great Britain and Russia. One stray bullet winds up revealing the existence of someone unexpected hiding behind the scenes, however. As rumblings of a great world war begin, it may finally be time to repent for the crimes of the pastÃ¢â‚¬Â¦
                         </p>
                 </div>
             </div>
@@ -528,7 +529,7 @@
            
         </div>
 
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
+        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT Ã‚Â© 2024. ALL RIGHTS RESERVED.</p>
 
     </footer>
 

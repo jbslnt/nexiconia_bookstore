@@ -307,6 +307,83 @@
             background: #f7a623;
             border-radius: 10px;
         }
+
+        :root {
+            --nexiconia-ink: #172a3a;
+            --nexiconia-cream: #f8f4ec;
+            --nexiconia-paper: #fffdf8;
+            --nexiconia-amber: #d9853b;
+            --nexiconia-muted: #66717a;
+        }
+
+        body {
+            background: var(--nexiconia-cream);
+            color: var(--nexiconia-ink);
+        }
+
+        .navigation {
+            min-height: 78px;
+            padding: 0 4vw;
+            border-bottom: 1px solid rgba(23, 42, 58, .08);
+            box-shadow: 0 8px 24px rgba(23, 42, 58, .08) !important;
+        }
+
+        .navigation .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .banner_one,
+        .banner_two {
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(23, 42, 58, .14);
+        }
+
+        .banner_one {
+            margin-top: 110px;
+        }
+
+        .product {
+            width: min(1100px, 90%);
+            padding: 40px 0;
+        }
+
+        .product_card2 {
+            width: 100% !important;
+            height: auto !important;
+            padding: 20px 0;
+        }
+
+        .product_details {
+            padding: 30px clamp(20px, 5vw, 70px);
+            border: 1px solid #e4dbce;
+            border-radius: 16px;
+            background: var(--nexiconia-paper);
+            box-shadow: 0 16px 40px rgba(23, 42, 58, .08);
+        }
+
+        .product_details h1 {
+            color: var(--nexiconia-ink);
+            font: 700 clamp(30px, 4vw, 52px)/1.05 Georgia, serif;
+        }
+
+        .product_details p {
+            color: var(--nexiconia-muted);
+            font-size: 18px !important;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--nexiconia-ink);
+        }
+
+        footer .footer_main .tag h1,
+        footer .footer_main .tag a,
+        footer .footer_main .tag p,
+        footer .end {
+            color: #f7f1e7;
+        }
     </style>
 
 

@@ -362,6 +362,7 @@
     </style>
 
 
+    <link rel="stylesheet" href="{{ asset('css/nexiconia-customer.css') }}">
 </head>
 <body>
     
@@ -457,12 +458,12 @@
                 <div class="product_details">
                     <h1>Neighborhood Story, Vol. 2</h1>
                     <h2>By Ai Yazawa, Andria McKnight (Translator)</h2>
-                    <h3>₱1,399.00</h3>
+                    <h3>Ã¢â€šÂ±1,399.00</h3>
                     <h4>Genre: Manga, Slice of Life</h4>
                     <p>
                         Mikako aims to take the world of fashion by storm but stumbles when love comes into season in this coming-of-age tale from the creator of Nana!
                         <br><br>
-                        Welcome to Happy Berry! No, this isn’t a fruit stand, but the label dreamed up by aspiring fashion designer Mikako Koda. In her quest to make a name for herself in the fashion world, Mikako enters Yazawa Arts Academy, a prestigious art school, alongside her strictly platonic childhood friend Tsutomu. But there’s one problem—Tsutomu’s uncanny resemblance to a rock star skyrockets him to popularity and leads him to date the prettiest girl in school. Now Mikako can’t help but wonder if what she feels is jealousy.
+                        Welcome to Happy Berry! No, this isnÃ¢â‚¬â„¢t a fruit stand, but the label dreamed up by aspiring fashion designer Mikako Koda. In her quest to make a name for herself in the fashion world, Mikako enters Yazawa Arts Academy, a prestigious art school, alongside her strictly platonic childhood friend Tsutomu. But thereÃ¢â‚¬â„¢s one problemÃ¢â‚¬â€TsutomuÃ¢â‚¬â„¢s uncanny resemblance to a rock star skyrockets him to popularity and leads him to date the prettiest girl in school. Now Mikako canÃ¢â‚¬â„¢t help but wonder if what she feels is jealousy.
                         <br><br>
                         Translated from the Italian by Aubrey Botsford
                     </p>
@@ -528,7 +529,7 @@
            
         </div>
 
-        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT © 2024. ALL RIGHTS RESERVED.</p>
+        <p class="end">NEXICONIA BOOKSTORE COPYRIGHT Ã‚Â© 2024. ALL RIGHTS RESERVED.</p>
 
     </footer>
 
